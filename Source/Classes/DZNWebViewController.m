@@ -230,10 +230,10 @@ static char DZNWebViewControllerKVOContext = 0;
         [items addObject:self.stateBarItem];
     }
     
-    if (self.supportedWebActions > 0) {
-        if (!DZN_IS_IPAD) [items addObject:flexibleSpace];
-        [items addObject:self.actionBarItem];
-    }
+//    if (self.supportedWebActions > 0) {
+//        if (!DZN_IS_IPAD) [items addObject:flexibleSpace];
+//        [items addObject:self.actionBarItem];
+//    }
     
     return items;
 }
@@ -388,6 +388,7 @@ static char DZNWebViewControllerKVOContext = 0;
     UIFont *urlFont = [UIFont fontWithName:titleFont.fontName size:titleFont.pointSize-2.0];
     UIColor *textColor = self.navigationBar.titleTextAttributes[NSForegroundColorAttributeName] ?: [UIColor blackColor];
     
+    textColor = [UIColor redColor];
     NSMutableString *text = [NSMutableString stringWithString:title];
     
     if (url.length > 0) {
@@ -519,12 +520,13 @@ static char DZNWebViewControllerKVOContext = 0;
         [self setToolbarItems:[self navigationToolItems]];
     }
     
+    
     self.toolbar = self.navigationController.toolbar;
     self.navigationBar = self.navigationController.navigationBar;
     self.navigationBarSuperView = self.navigationBar.superview;
     
     self.navigationController.hidesBarsOnSwipe = self.hideBarsWithGestures;
-    self.navigationController.hidesBarsWhenKeyboardAppears = self.hideBarsWithGestures;
+//    self.navigationController.hidesBarsWhenKeyboardAppears = self.hideBarsWithGestures;
     self.navigationController.hidesBarsWhenVerticallyCompact = self.hideBarsWithGestures;
 
     if (self.hideBarsWithGestures) {

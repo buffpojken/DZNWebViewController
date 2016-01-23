@@ -42,7 +42,7 @@ typedef NS_OPTIONS(NSUInteger, DZNsupportedWebActions) {
 /**
  A very simple web browser with useful navigation and tooling features.
  */
-@interface DZNWebViewController : UIViewController <DZNNavigationDelegate, WKUIDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface DZNWebViewController : UIViewController <DZNNavigationDelegate, WKUIDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 
 /** The web view that the controller manages. */
 @property (nonatomic, strong) DZNWebView *webView;
@@ -111,7 +111,6 @@ typedef NS_OPTIONS(NSUInteger, DZNsupportedWebActions) {
 // The action button displayed on the navigation bar (requieres at least 1 DZNsupportedWebActions value)
 @property (nonatomic, strong) UIImage *actionButtonImage;
 
-
 ///------------------------------------------------
 /// @name Delegate Methods Requiring Super
 ///------------------------------------------------
@@ -134,5 +133,9 @@ typedef NS_OPTIONS(NSUInteger, DZNsupportedWebActions) {
 
 // UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath NS_REQUIRES_SUPER;
+
+// Override Points
+- (void)configureToolBars;
+- (void)commonInit;
 
 @end
